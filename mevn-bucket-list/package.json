@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "private": "true",
   "scripts": {
     "server": "nodemon server.js ignore 'client/'",
     "client": "npm run serve --prefix client", 
