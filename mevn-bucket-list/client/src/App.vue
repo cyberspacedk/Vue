@@ -1,26 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <h1>LIST</h1>
+    <div class="notification" v-for="(item, idx) in items" :key="item._id">
+      <p>
+        <span class="tag is-primary">{{idx + 1}}</span>
+        {{item.description}}
+        </p>
+    </div>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script> 
+import axios from "axios";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      items: []
+    }
+  },
+
+  async mounted(){
+    const response = await axios("/api/bucketListItems");
+    this.items = response.data;
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: auto;
+  margin-top: 3rem;
+  max-width: 700px;
 }
+ 
 </style>
