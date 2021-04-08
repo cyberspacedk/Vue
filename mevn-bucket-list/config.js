@@ -1,4 +1,6 @@
+const uri = require('./.dbCred');
+
 module.exports = {
-    mongoUri: "mongodb+srv://mevn:mevn-stack@cluster0.nw6ob.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    mongoUri: uri,
     PORT: process.env.PORT || 9000
 }
