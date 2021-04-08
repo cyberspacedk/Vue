@@ -41,11 +41,10 @@ router.put("/:id", async (req, res)=> {
 
 router.delete("/:id", async (req, res)=> {
     try {
-        const {id} = req.params;
-        console.log("🚀 ~ file: bucketListItems.js ~ line 45 ~ router.delete ~ id", id)
+        const {id} = req.params; 
         const removed = await BucketListItem.findByIdAndDelete(id); 
         if(!removed) throw Error("Error while deleting"); 
-        res.status(200).json(updated)
+        res.status(200).json(removed)
     } catch (error) {
         res.status(500).json({message: error.message})
     }   
